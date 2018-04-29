@@ -133,7 +133,7 @@ class Bernoulli_EM:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dir', type=str, help='specify the data file', default='data')
+    parser.add_argument('--dir', type=str, help='specify the data file', default='mnist_data')
     parser.add_argument('--num_classes', type=int, help='specify the number of classes', default=10)
     args = parser.parse_args()
 
