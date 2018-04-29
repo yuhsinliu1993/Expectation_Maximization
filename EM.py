@@ -44,24 +44,20 @@ class Bernoulli_EM:
         self.tol = tol
 
         self.verbose = verbose
-
-        self.pi = np.array([1 / num_classes for _ in range(num_classes)])
-        self.mu = None
-
         self._converged = False
 
     def fit(self, x):
         print("[+] Trainging ...")
         dim = x.shape[1]
 
-        self.mu = np.ndarray(shape=(self.num_classes, dim))
+        # Initialization parameters
+        self.pi = np.array([1 / self.num_classes for _ in range(self.num_classes)])
         self.mu = np.random.rand(self.num_classes, dim) * 0.5 + 0.25
-
-        iterations = 0
 
         prev_log_likelihood = None
         current_log_likelihood = -np.inf
 
+        iterations = 0
         while iterations < self.num_iteration:
             prev_log_likelihood = current_log_likelihood
 
